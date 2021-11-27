@@ -763,6 +763,28 @@ public class MainFragment extends Fragment
     loadlist((mainFragmentViewModel.getHome()), false, OpenMode.FILE);
   }
 
+  public void check_homepath(MainActivity mainActivity,MainFragment mainFragment){
+    MaterialDialog dialog_check_home_path =
+            GeneralDialogCreation.showNameDialog(
+                    mainActivity,
+                    "",
+                    mainFragment.getMainFragmentViewModel().getHome(),
+                    "Check Home Path",
+                    "ok",
+                    null,
+                    null,
+                    (dialog,which) -> {
+                      dialog.dismiss();
+                    },
+                    (text) -> {
+                        return new WarnableTextInputValidator.ReturnState();
+                    }
+
+            );
+  }
+
+
+
   /**
    * method called when list item is clicked in the adapter
    *
