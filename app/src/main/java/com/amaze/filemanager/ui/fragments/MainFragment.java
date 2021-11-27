@@ -690,6 +690,8 @@ public class MainFragment extends Fragment
                   requireMainActivity(), copies1, mainFragmentViewModel.getCurrentPath());
               mode.finish();
               return true;
+
+
             case R.id.openwith:
               FileUtils.openFile(
                   new File(checkedItems.get(0).desc), requireMainActivity(), sharedPref);
