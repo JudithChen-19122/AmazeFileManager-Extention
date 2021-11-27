@@ -1105,6 +1105,10 @@ public class MainActivity extends PermissionsActivity
                       });
               dialog.show();
               break;
+            case R.id.setHomepath:
+              mainFragment.set_homepath(mainActivity);
+              break;
+
             case R.id.exit:
               finish();
               break;
