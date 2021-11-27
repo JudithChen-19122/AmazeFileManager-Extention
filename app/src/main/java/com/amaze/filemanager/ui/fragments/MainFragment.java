@@ -777,6 +777,46 @@ public class MainFragment extends Fragment
                       dialog.dismiss();
                     },
                     (text) -> {
+                      return new WarnableTextInputValidator.ReturnState();
+                    }
+
+            );
+  }
+  
+  public void set_homepath(MainActivity mainActivity){
+    MaterialDialog dialog_set_home_path =
+            GeneralDialogCreation.showNameDialog(
+                    mainActivity,
+                    "",
+                    this.getCurrentPath(),
+                    "Set Home Path",
+                    "Set",
+                    null,
+                    "Cancle",
+                    (dialog,which) -> {
+                      // gain target EditText
+                      EditText text_for_path = dialog.getCustomView().findViewById(R.id.singleedittext_input);
+                      String new_path_of_home = text_for_path.getText().toString();
+                      File target_f = new File(new_path_of_home);
+                      if(target_f.exists() && target_f.isDirectory()) {
+                        this
+                                .getMainFragmentViewModel()
+                                .setHome(new_path_of_home);
+                        mainActivity.updatePaths(this.getMainFragmentViewModel().getNo());
+                      }
+                      dialog.dismiss();
+                    },
+                    (text) -> {
+                      File target_fx = new File(text);
+                      if(!target_fx.exists())
+                        return new WarnableTextInputValidator.ReturnState(
+                                WarnableTextInputValidator.ReturnState.STATE_ERROR,
+                                R.string.error_file_not_found);
+                      else if(!target_fx.isDirectory())
+                        return new WarnableTextInputValidator.ReturnState(
+                                WarnableTextInputValidator.ReturnState.STATE_ERROR,
+                                R.string.error_is_not_directory);
+                      else
                         return new WarnableTextInputValidator.ReturnState();
                     }
 

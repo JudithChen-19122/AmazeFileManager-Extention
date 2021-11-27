@@ -1109,6 +1109,10 @@ public class MainActivity extends PermissionsActivity
             case R.id.checkhome:
               mainFragment.check_homepath(mainActivity,mainFragment);
               break;
+              
+            case R.id.setHomepath:
+              mainFragment.set_homepath(mainActivity);
+              break;
 
             case R.id.exit:
               finish();

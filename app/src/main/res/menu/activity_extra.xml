@@ -64,6 +64,10 @@
         android:id="@+id/checkhome"
         android:title="@string/check_home_path"/>
 
+    <item
+        android:id="@+id/setHomepath"
+        android:title="@string/set_home_path"/>
+
     <!-- orderInCategory=100 to have the element exit always at the end of the list -->
     <item
         android:id="@+id/exit"
