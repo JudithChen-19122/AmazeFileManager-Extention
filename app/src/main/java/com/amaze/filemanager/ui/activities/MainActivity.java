@@ -1014,6 +1014,8 @@ public class MainActivity extends PermissionsActivity
       menu.findItem(R.id.home).setVisible(true);
       menu.findItem(R.id.history).setVisible(true);
       menu.findItem(R.id.sethome).setVisible(true);
+      menu.findItem(R.id.checkhome).setVisible(true);
+      menu.findItem(R.id.setHomepath).setVisible(true);
       menu.findItem(R.id.sort).setVisible(true);
       menu.findItem(R.id.hiddenitems).setVisible(true);
       menu.findItem(R.id.view).setVisible(true);
@@ -1025,6 +1027,8 @@ public class MainActivity extends PermissionsActivity
         || fragment instanceof FtpServerFragment) {
       appBarLayout.setExpanded(true);
       menu.findItem(R.id.sethome).setVisible(false);
+      menu.findItem(R.id.checkhome).setVisible(false);
+      menu.findItem(R.id.setHomepath).setVisible(false);
       if (indicator_layout != null) indicator_layout.setVisibility(View.GONE);
       findViewById(R.id.buttonbarframe).setVisibility(View.GONE);
       menu.findItem(R.id.search).setVisible(false);
@@ -1045,6 +1049,8 @@ public class MainActivity extends PermissionsActivity
     } else if (fragment instanceof CompressedExplorerFragment) {
       appbar.setTitle(R.string.appbar_name);
       menu.findItem(R.id.sethome).setVisible(false);
+      menu.findItem(R.id.checkhome).setVisible(false);
+      menu.findItem(R.id.setHomepath).setVisible(false);
       if (indicator_layout != null) indicator_layout.setVisibility(View.GONE);
       getAppbar().getBottomBar().resetClickListener();
       menu.findItem(R.id.search).setVisible(false);
